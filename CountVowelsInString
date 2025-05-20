@@ -1,0 +1,38 @@
+
+
+
+// let str="muhammad"
+// let vowels=["a","e","i",'o',"u"];
+
+
+
+
+// function mergeAndSort(){
+
+// let splitted=str.split("")
+// let count=0;
+
+// for(let i=0;i<splitted.length;i++){
+ 
+//   if(vowels.includes(splitted[i])){
+//     count++
+//   }
+// }
+// return count;
+// }
+
+// console.log(mergeAndSort());
+
+const str = "muhammad";
+const vowels = new Set(["a", "e", "i", "o", "u"]); // Faster lookup with Set
+
+function countVowels(str) {
+  let count = 0;
+  for (const char of str.toLowerCase()) { // Case-insensitive check
+    if (vowels.has(char)) count++;
+  }
+  return count;
+}
+
+console.log(countVowels(str)); // Output: 3 ("u", "a", "a")
+
