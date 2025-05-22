@@ -1,0 +1,15 @@
+//using normal function
+function f1(n1) {
+  return function f2(n2) {
+    return function f3(n3) {
+      return function f4() {
+        return n1 * n2 * n3;
+      };
+    };
+  };
+}
+
+//using arrow function
+const cury = (n1) => (n2) => (n3) => () => n1 * n2 * n3;
+
+console.log(cury(1)(2)(3)());
