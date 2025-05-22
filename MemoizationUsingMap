@@ -1,0 +1,25 @@
+function gettingSomeValueFromDb() {
+  return Math.random() * 10 + Math.random();
+}
+
+function memoization() {
+  let map = new Map();
+
+  return (input) => {
+    if (map.has(input)) {
+      console.log("cache hit");
+      return { input: map.get(input) };
+    } else {
+      console.log("cache miss");
+      const value = gettingSomeValueFromDb();
+      map.set(input, value);
+      return { input: value };
+    }
+  };
+}
+
+const memoized = memoization();
+console.log(memoized(10));
+console.log(memoized(10));
+console.log(memoized(10));
+console.log(memoized(10));
